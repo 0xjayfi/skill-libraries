@@ -1,229 +1,81 @@
-# 🏭 Agent Skill Factory
-### A Claude Agent Skill that Creates Other Claude Agent Skills
+# Agent Skill Factory
 
-Agent Skill Factory is a workflow automation meta‑skill that transforms natural language workflow descriptions into fully structured, production‑ready Claude Agent Skills.
+A personal skill library and meta-skill for generating Claude Agent Skills from natural language workflow descriptions.
 
-Instead of manually writing:
+## What This Does
 
-- YAML frontmatter  
-- SKILL.md logic  
-- Trigger conditions  
-- Folder structures  
-- Testing plans  
-- Troubleshooting instructions  
+The root `SKILL.md` is a meta-skill — describe a workflow you want Claude to automate, and it generates a complete, reusable Agent Skill for it. Generated skills are stored in the `skills/` directory.
 
-You simply describe the workflow you want Claude to automate — and this skill generates a reusable agent skill for it.
+Instead of manually writing YAML frontmatter, trigger conditions, and workflow instructions, you describe what you want and get a properly structured `SKILL.md` ready for distribution.
 
-This allows you to move from prompting Claude to programming Claude’s behavior.
+## Repo Structure
 
----
-
-## 🚀 What This Skill Does
-
-Agent Skill Factory takes:
-"I want Claude to audit HTML pages or URLs for SEO compliance and prepare them for ISO content review"
-
-
-And turns it into:
-
-- A complete skill folder  
-- Properly formatted SKILL.md  
-- Optimized YAML frontmatter  
-- Trigger phrases  
-- Multi‑step workflow instructions  
-- Validation gates  
-- Troubleshooting section  
-- Testing plan  
-- Distribution‑ready structure  
-
-You get a reusable Claude Agent Skill that can now automatically execute that workflow in future conversations without needing to re‑prompt.
-
----
-
-## 🧠 Why Use This Skill
-
-Claude Agent Skills are powerful — but creating them manually requires:
-
-- Understanding progressive disclosure
-- Writing correct YAML frontmatter
-- Defining trigger conditions
-- Structuring orchestration workflows
-- Avoiding over‑triggering and under‑triggering
-- Packaging for distribution
-
-Agent Skill Factory automates that entire process by converting workflow intent into structured reusable behavior.
-
----
-
-## 🧩 Use Cases
-
-Use this when you want Claude to:
-
-- Follow a repeatable methodology
-- Generate structured documents consistently
-- Execute multi‑step workflows
-- Coordinate MCP integrations
-- Audit files or URLs
-- Prepare compliance reports
-- Transform input files before processing
-- Generate code artifacts
-- Standardize internal processes
-
-Examples:
-- Create a skill that generates frontend designs from PRDs
-- Build a skill that prepares uploaded PDFs for ISO audit review
-- Turn this customer onboarding workflow into a Claude skill
-
----
-
-## 🛠 Skill Creation Pipeline
-
-When invoked, Agent Skill Factory performs the following steps:
-
-### 1. Extract Use Case
-
-Identifies:
-
-- Desired outcome
-- User intent
-- Trigger phrases
-- Required workflow steps
-- Required tools or MCP integrations
-- Embedded domain knowledge
-- Input file types if present
-
----
-
-### 2. Classify Skill Type
-
-Automatically detects whether the new skill is:
-
-- Document & Asset Creation  
-- Workflow Automation  
-- MCP Enhancement  
-
----
-
-### 3. Generate Skill Folder
-
-Creates:
-skill-name/
-└── SKILL.md
-
-Naming rules:
-
-- lowercase
-- kebab‑case
-- no spaces
-- no capitals
-- no underscores
-
----
-
-### 4. Generate YAML Frontmatter
-
-Includes:
-
-- Skill purpose  
-- When to trigger  
-- Invocation phrases  
-- Metadata  
-- Versioning  
-
-Optimized for:
-
-- Automatic loading  
-- Trigger accuracy  
-- Reduced token usage  
-
----
-
-### 5. Build Instructions
-
-Adds:
-
-- Sequential workflow orchestration  
-- Validation logic  
-- Input preparation steps  
-- Iteration loops  
-- Error handling  
-- Output finalization  
-
-Supports:
-
-- URLs  
-- HTML  
-- PDFs  
-- CSV  
-- Images  
-- Documents  
-
----
-
-### 6. Add Examples
-
-Includes:
-
-- Common invocation  
-- Paraphrased invocation  
-- Edge case usage  
-
----
-
-### 7. Add Troubleshooting
-
-Handles:
-
-- Over‑triggering  
-- Under‑triggering  
-- Tool failures  
-- Input preparation issues  
-
----
-
-### 8. Generate Testing Plan
-
-Produces:
-
-Should Trigger queries  
-Should NOT Trigger queries  
-
-## 📦 Installation
-``` 
-npx skills add https://github.com/agharsallah/agent-skill-factory
+```
+agent-skill-factory/
+  SKILL.md              # The factory (meta-skill)
+  CLAUDE.md             # Claude Code project conventions
+  README.md             # This file
+  LICENSE               # MIT
+  references/           # Official Anthropic skill-building guide
+  skills/               # Generated skills live here
+    {skill-name}/
+      SKILL.md
 ```
 
-## ✅ Usage
-After installation simply say:
-```Create a skill that audits HTML pages or URLs for SEO compliance
+## Installation
+
+### Claude.ai
+1. Download or clone this repo
+2. Zip the root folder
+3. Upload via **Settings > Capabilities > Skills**
+
+### Claude Code
+Place the skill folder in your Claude Code skills directory.
+
+### Cross-machine usage
+Clone this repo on any machine to access all your generated skills:
 ```
+git clone https://github.com/0xjayfi/skill-libraries.git
+```
+
+Individual skills in `skills/` can be zipped and uploaded to Claude.ai independently.
+
+## Usage
+
+After installing, say:
+
+```
+Create a skill that audits HTML pages for SEO compliance
+```
+
 or
+
 ```
 Turn this workflow into a reusable Claude Agent Skill:
-[paste workflow]
+[paste your workflow]
 ```
-Agent Skill Factory will generate:
 
-* Folder
-* SKILL.md
-* Instructions
-* Trigger logic
-* Testing plan
+The factory generates a complete skill with:
+- YAML frontmatter with trigger phrases
+- Sequential workflow instructions
+- Validation gates
+- Examples
+- Troubleshooting section
+- Testing plan
 
-## 🔁 Iterative Mode
-You can improve generated skills by saying:
+Output goes to `skills/{skill-name}/SKILL.md`.
+
+## Iterative Mode
+
+Improve generated skills by saying:
+
 ```
 Improve this skill
 Fix triggering
-Handle HTML inputs
 Make it less broad
 Support URLs and PDFs
 ```
 
-The skill will:
+## Acknowledgements
 
-* Refine frontmatter
-* Improve triggers
-* Add validation logic
-* Expand file‑type support
-* Update metadata version
+Forked from [agent-skill-factory](https://github.com/agharsallah/agent-skill-factory) by [Abderrahmen Gharsallah](https://github.com/agharsallah). Original work licensed under MIT.
